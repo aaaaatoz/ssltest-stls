@@ -39,13 +39,14 @@ c0 02 00 05 00 04 00 15  00 12 00 09 00 14 00 11
 00 0f 00 01 01
 ''')
 
+#code changed here to get 64k
 hb = h2bin('''
 18 03 02 00 03
 01 ff ff
 ''')
 
 def hexdump(s):
-    for b in xrange(0, len(s), 64):
+    for b in xrange(0, len(s), 64):     #code changed here to get 64k
         lin = [c for c in s[b : b + 16]]
         hxdat = ' '.join('%02X' % ord(c) for c in lin)
         pdat = ''.join((c if 32 <= ord(c) <= 126 else '.' )for c in lin)
